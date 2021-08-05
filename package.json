@@ -11,7 +11,7 @@
   "peerDependencies": {
     "three": ">=0.126.0"
   },
-  "main": "dist",
+  "main": "dist/index.js",
   "dependencies": {
     "array-shuffle": "^1.0.1",
     "inherits": "^2.0.1",
