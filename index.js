@@ -12,8 +12,6 @@ module.exports = function createTextGeometry (opt) {
 }
 
 function TextGeometry (opt) {
-  Base.call(this)
-
   if (typeof opt === 'string') {
     opt = { text: opt }
   }
