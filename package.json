@@ -9,11 +9,6 @@
     "email": "dave.des@gmail.com",
     "url": "https://github.com/mattdesl"
   },
-  "standard": {
-    "globals": [
-      "THREE"
-    ]
-  },
   "dependencies": {
     "array-shuffle": "^1.0.1",
     "inherits": "^2.0.1",
