@@ -18,6 +18,9 @@
     "quad-indices": "^2.0.1",
     "three-buffer-vertex-data": "^1.0.0"
   },
+  "peerDependencies": {
+    "three": ">=0.126.0"
+  },
   "devDependencies": {
     "bluebird": "^3.7.2",
     "browserify": "^16.5.1",

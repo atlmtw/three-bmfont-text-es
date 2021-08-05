@@ -4,12 +4,7 @@ var createIndices = require('quad-indices')
 var vertices = require('./lib/vertices')
 var utils = require('./lib/utils')
 
-var root = this
-
-var has_require = typeof require !== 'undefined'
-
-var THREE = root.THREE || (has_require && require('three'))
-if (!THREE) throw new Error('MeshLine requires three.js')
+import * as THREE from 'three'
 
 module.exports = function createTextGeometry (opt) {
   return new TextGeometry(opt)
