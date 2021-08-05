@@ -1,13 +1,15 @@
 {
     "presets": [
-        ["@babel/preset-env", {"debug" : true}]
+        ["@babel/preset-env", {
+            "debug" : true
+        }]
     ],
     "plugins": [
         ["module-resolver", {
-            "root": ["./src"],
+            "root" : ["./src"],
             "alias": {
-              "lib/": "./src/lib/*",
-              "shaders/": "./src/shaders/*"
+              "lib": "./lib",
+              "shaders": "./shaders"
             }
         }]
     ]
