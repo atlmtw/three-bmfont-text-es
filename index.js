@@ -9,8 +9,10 @@ module.exports = function createTextGeometry (opt) {
 }
 
 class TextGeometry extends THREE.BufferyGeometry {
-  constructor(opts){
+  constructor(opt){
     super();
+
+    console.log(THREE.BufferGeometry);
 
     if (typeof opt === 'string') {
       opt = { text: opt }
