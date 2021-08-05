@@ -13,11 +13,8 @@
   },
   "main": "dist/index.js",
   "dependencies": {
-    "array-shuffle": "^1.0.1",
-    "inherits": "^2.0.1",
     "layout-bmfont-text": "^1.2.0",
     "nice-color-palettes": "^3.0.0",
-    "object-assign": "^4.0.1",
     "quad-indices": "^2.0.1",
     "three-buffer-vertex-data": "^1.0.0"
   },
@@ -26,6 +23,7 @@
     "@babel/core": "^7.15.0",
     "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "array-shuffle": "^3.0.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "bluebird": "^3.7.2",
     "browserify": "^16.5.1",

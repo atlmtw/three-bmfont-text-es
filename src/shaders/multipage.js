@@ -1,5 +1,3 @@
-var assign = require('object-assign')
-
 export function createMultipageShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -47,8 +45,8 @@ export function createMultipageShader (opt) {
     attributes = undefined
   }
 
-  return assign({
-    uniforms: assign({}, baseUniforms, {
+  return Object.assign({
+    uniforms: Object.assign({}, baseUniforms, {
       opacity: { type: 'f', value: opacity },
       color: { type: 'c', value: new THREE.Color(color) }
     }),

@@ -1,5 +1,3 @@
-var assign = require('object-assign')
-
 export function createSDFShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -14,7 +12,7 @@ export function createSDFShader (opt) {
   delete opt.precision
   delete opt.opacity
 
-  return assign({
+  return Object.assign({
     uniforms: {
       opacity: { type: 'f', value: opacity },
       map: { type: 't', value: map || new THREE.Texture() },

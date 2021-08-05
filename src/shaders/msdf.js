@@ -1,5 +1,3 @@
-var assign = require('object-assign');
-
 export function createMSDFShader (opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -16,7 +14,7 @@ export function createMSDFShader (opt) {
   delete opt.opacity;
   delete opt.negate;
 
-  return assign({
+  return Object.assign({
     uniforms: {
       opacity: { type: 'f', value: opacity },
       map: { type: 't', value: map || new THREE.Texture() },
