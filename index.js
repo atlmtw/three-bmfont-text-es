@@ -4,9 +4,9 @@ var createIndices = require('quad-indices')
 var vertices = require('./lib/vertices')
 var utils = require('./lib/utils')
 
-import * as THREE from 'three'
+import * as THREE from 'three';
 
-module.exports = function createTextGeometry (opt) {
+export function createTextGeometry (opt) {
   return new TextGeometry(opt)
 }
 
