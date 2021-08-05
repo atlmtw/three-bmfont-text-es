@@ -10,7 +10,7 @@ export function createTextGeometry (opt) {
   return new TextGeometry(opt)
 }
 
-class TextGeometry extends THREE.BufferyGeometry {
+class TextGeometry extends THREE.BufferGeometry {
   constructor(opt){
     super();
 
