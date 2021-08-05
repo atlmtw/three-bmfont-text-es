@@ -5,13 +5,15 @@ var createIndices = require('quad-indices')
 var vertices = require('./lib/vertices')
 var utils = require('./lib/utils')
 
-var Base = new THREE.BufferGeometry();
+var Base = new THREE.BufferGeometry
 
 module.exports = function createTextGeometry (opt) {
   return new TextGeometry(opt)
 }
 
 function TextGeometry (opt) {
+  Base.call(this)
+
   if (typeof opt === 'string') {
     opt = { text: opt }
   }
