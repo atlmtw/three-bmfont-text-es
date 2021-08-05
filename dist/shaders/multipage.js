@@ -1,8 +1,13 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createMultipageShader = createMultipageShader;
+
 var assign = require('object-assign');
 
-module.exports = function createMultipageShader(opt) {
+function createMultipageShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
   var precision = opt.precision || 'highp';
@@ -57,4 +62,4 @@ module.exports = function createMultipageShader(opt) {
     vertexShader: ['attribute vec4 position;', 'attribute vec2 uv;', 'attribute float page;', 'uniform mat4 projectionMatrix;', 'uniform mat4 modelViewMatrix;', 'varying vec2 vUv;', 'varying float vPage;', 'void main() {', 'vUv = uv;', 'vPage = page;', 'gl_Position = projectionMatrix * modelViewMatrix * position;', '}'].join('\n'),
     fragmentShader: ['precision ' + precision + ' float;', 'uniform float opacity;', 'uniform vec3 color;', samplers, 'varying float vPage;', 'varying vec2 vUv;', 'void main() {', 'vec4 sampleColor = vec4(0.0);', body, 'gl_FragColor = sampleColor * vec4(color, opacity);', alphaTest === 0 ? '' : '  if (gl_FragColor.a < ' + alphaTest + ') discard;', '}'].join('\n')
   }, attributes, opt);
-};
+}

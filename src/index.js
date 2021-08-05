@@ -1,9 +1,7 @@
-var createLayout = require('layout-bmfont-text')
-var createIndices = require('quad-indices')
-
-var vertices = require('./lib/vertices')
-var utils = require('./lib/utils')
-
+import * as createLayout from 'layout-bmfont-text';
+import * as createIndices from 'quad-indices';
+import * as utils from './lib/utils';
+import * as vertices from './lib/vertices';
 import * as THREE from 'three';
 
 export function createTextGeometry (opt) {

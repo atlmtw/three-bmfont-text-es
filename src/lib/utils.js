@@ -18,13 +18,13 @@ function bounds (positions) {
   }
 }
 
-module.exports.computeBox = function (positions, output) {
+export function computeBox(positions, output) {
   bounds(positions)
   output.min.set(box.min[0], box.min[1], 0)
   output.max.set(box.max[0], box.max[1], 0)
 }
 
-module.exports.computeSphere = function (positions, output) {
+export function computeSphere(positions, output) {
   bounds(positions)
   var minX = box.min[0]
   var minY = box.min[1]

@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "bluebird": "^3.7.2",
     "browserify": "^16.5.1",

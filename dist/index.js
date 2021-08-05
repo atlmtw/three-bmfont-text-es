@@ -7,6 +7,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createTextGeometry = createTextGeometry;
 
+var createLayout = _interopRequireWildcard(require("layout-bmfont-text"));
+
+var createIndices = _interopRequireWildcard(require("quad-indices"));
+
+var utils = _interopRequireWildcard(require("./lib/utils"));
+
+var vertices = _interopRequireWildcard(require("./lib/vertices"));
+
 var THREE = _interopRequireWildcard(require("three"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -32,14 +40,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var createLayout = require('layout-bmfont-text');
-
-var createIndices = require('quad-indices');
-
-var vertices = require('./lib/vertices');
-
-var utils = require('./lib/utils');
 
 function createTextGeometry(opt) {
   return new TextGeometry(opt);

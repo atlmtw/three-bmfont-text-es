@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.computeBox = computeBox;
+exports.computeSphere = computeSphere;
 var itemSize = 2;
 var box = {
   min: [0, 0],
@@ -23,13 +28,13 @@ function bounds(positions) {
   }
 }
 
-module.exports.computeBox = function (positions, output) {
+function computeBox(positions, output) {
   bounds(positions);
   output.min.set(box.min[0], box.min[1], 0);
   output.max.set(box.max[0], box.max[1], 0);
-};
+}
 
-module.exports.computeSphere = function (positions, output) {
+function computeSphere(positions, output) {
   bounds(positions);
   var minX = box.min[0];
   var minY = box.min[1];
@@ -40,4 +45,4 @@ module.exports.computeSphere = function (positions, output) {
   var length = Math.sqrt(width * width + height * height);
   output.center.set(minX + width / 2, minY + height / 2, 0);
   output.radius = length / 2;
-};
+}
