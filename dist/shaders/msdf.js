@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createMSDFShader = createMSDFShader;
 
-var assign = require('object-assign');
-
 function createMSDFShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -21,7 +19,7 @@ function createMSDFShader(opt) {
   delete opt.precision;
   delete opt.opacity;
   delete opt.negate;
-  return assign({
+  return Object.assign({
     uniforms: {
       opacity: {
         type: 'f',

@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createBasicShader = createBasicShader;
 
-var assign = require('object-assign');
-
 function createBasicShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -19,7 +17,7 @@ function createBasicShader(opt) {
   delete opt.color;
   delete opt.precision;
   delete opt.opacity;
-  return assign({
+  return Object.assign({
     uniforms: {
       opacity: {
         type: 'f',

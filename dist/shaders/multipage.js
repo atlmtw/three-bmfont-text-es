@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createMultipageShader = createMultipageShader;
 
-var assign = require('object-assign');
-
 function createMultipageShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -48,8 +46,8 @@ function createMultipageShader(opt) {
     attributes = undefined;
   }
 
-  return assign({
-    uniforms: assign({}, baseUniforms, {
+  return Object.assign({
+    uniforms: Object.assign({}, baseUniforms, {
       opacity: {
         type: 'f',
         value: opacity
