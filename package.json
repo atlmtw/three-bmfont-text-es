@@ -9,6 +9,11 @@
     "email": "dave.des@gmail.com",
     "url": "https://github.com/mattdesl"
   },
+  "standard": {
+    "globals": [
+      "THREE"
+    ]
+  },
   "peerDependencies": {
     "three": ">=0.126.0"
   },
