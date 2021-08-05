@@ -12,11 +12,6 @@
     "three": ">=0.126.0"
   },
   "main": "dist/index.js",
-  "files": [
-    "dist/index.js",
-    "dist/lib",
-    "dist/shaders"
-  ],
   "dependencies": {
     "array-shuffle": "^1.0.1",
     "inherits": "^2.0.1",
@@ -31,6 +26,7 @@
     "@babel/core": "^7.15.0",
     "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "bluebird": "^3.7.2",
     "browserify": "^16.5.1",
     "budo": "^11.6.3",
