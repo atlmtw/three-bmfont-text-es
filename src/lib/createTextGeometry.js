@@ -1,5 +1,5 @@
-import * as createLayout from 'layout-bmfont-text';
-import * as createIndices from 'quad-indices';
+var createLayout = require('layout-bmfont-text')
+var createIndices = require('quad-indices')
 import * as utils from './utils';
 import * as vertices from './vertices';
 import * as THREE from 'three';
