@@ -7,10 +7,6 @@
     "plugins": [
         ["module-resolver", {
             "root" : ["./src"],
-            "alias": {
-              "lib": "./lib",
-              "shaders": "./shaders"
-            }
         }]
     ]
 }
