@@ -1,13 +1,4 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.pages = pages;
-exports.uvs = uvs;
-exports.positions = positions;
-
-function pages(glyphs) {
+export function pages(glyphs) {
   var pages = new Float32Array(glyphs.length * 4 * 1);
   var i = 0;
   glyphs.forEach(function (glyph) {
@@ -19,8 +10,7 @@ function pages(glyphs) {
   });
   return pages;
 }
-
-function uvs(glyphs, texWidth, texHeight, flipY) {
+export function uvs(glyphs, texWidth, texHeight, flipY) {
   var uvs = new Float32Array(glyphs.length * 4 * 2);
   var i = 0;
   glyphs.forEach(function (glyph) {
@@ -53,8 +43,7 @@ function uvs(glyphs, texWidth, texHeight, flipY) {
   });
   return uvs;
 }
-
-function positions(glyphs) {
+export function positions(glyphs) {
   var positions = new Float32Array(glyphs.length * 4 * 2);
   var i = 0;
   glyphs.forEach(function (glyph) {

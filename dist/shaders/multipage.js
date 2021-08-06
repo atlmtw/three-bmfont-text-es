@@ -1,11 +1,4 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createMultipageShader = createMultipageShader;
-
-function createMultipageShader(opt) {
+export function createMultipageShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
   var precision = opt.precision || 'highp';

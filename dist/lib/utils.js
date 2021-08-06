@@ -1,10 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.computeBox = computeBox;
-exports.computeSphere = computeSphere;
 var itemSize = 2;
 var box = {
   min: [0, 0],
@@ -28,13 +21,12 @@ function bounds(positions) {
   }
 }
 
-function computeBox(positions, output) {
+export function computeBox(positions, output) {
   bounds(positions);
   output.min.set(box.min[0], box.min[1], 0);
   output.max.set(box.max[0], box.max[1], 0);
 }
-
-function computeSphere(positions, output) {
+export function computeSphere(positions, output) {
   bounds(positions);
   var minX = box.min[0];
   var minY = box.min[1];
