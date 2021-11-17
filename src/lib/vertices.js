@@ -47,7 +47,7 @@ export function uvs (glyphs, texWidth, texHeight, flipY) {
 }
 
 export function positions (glyphs) {
-  var positions = new Float32Array(glyphs.length * 4 * 2)
+  var positions = new Float32Array(glyphs.length * 4 * 3)
   var i = 0
   glyphs.forEach(function (glyph) {
     var bitmap = glyph.data
@@ -63,15 +63,19 @@ export function positions (glyphs) {
     // BL
     positions[i++] = x
     positions[i++] = y
+    positions[i++] = 0
     // TL
     positions[i++] = x
     positions[i++] = y + h
+    positions[i++] = 0
     // TR
     positions[i++] = x + w
     positions[i++] = y + h
+    positions[i++] = 0
     // BR
     positions[i++] = x + w
     positions[i++] = y
+    positions[i++] = 0
   })
   return positions
 }

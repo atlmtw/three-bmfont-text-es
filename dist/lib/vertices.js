@@ -44,7 +44,7 @@ export function uvs(glyphs, texWidth, texHeight, flipY) {
   return uvs;
 }
 export function positions(glyphs) {
-  var positions = new Float32Array(glyphs.length * 4 * 2);
+  var positions = new Float32Array(glyphs.length * 4 * 3);
   var i = 0;
   glyphs.forEach(function (glyph) {
     var bitmap = glyph.data; // bottom left position
@@ -56,16 +56,20 @@ export function positions(glyphs) {
     var h = bitmap.height; // BL
 
     positions[i++] = x;
-    positions[i++] = y; // TL
+    positions[i++] = y;
+    positions[i++] = 0; // TL
 
     positions[i++] = x;
-    positions[i++] = y + h; // TR
+    positions[i++] = y + h;
+    positions[i++] = 0; // TR
 
     positions[i++] = x + w;
-    positions[i++] = y + h; // BR
+    positions[i++] = y + h;
+    positions[i++] = 0; // BR
 
     positions[i++] = x + w;
     positions[i++] = y;
+    positions[i++] = 0;
   });
   return positions;
 }

@@ -68,7 +68,7 @@ class TextGeometry extends THREE.BufferGeometry {
   
     // update vertex data
     this.setIndex(indices)
-    this.setAttribute('position', new THREE.BufferAttribute(positions, 2))
+    this.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     this.setAttribute('uv', new THREE.BufferAttribute(uvs, 2))
   
     // update multipage data
@@ -89,7 +89,7 @@ class TextGeometry extends THREE.BufferGeometry {
   
     var positions = this.attributes.position.array
     var itemSize = this.attributes.position.itemSize
-    if (!positions || !itemSize || positions.length < 2) {
+    if (!positions || !itemSize || positions.length < 3) {
       this.boundingSphere.radius = 0
       this.boundingSphere.center.set(0, 0, 0)
       return
@@ -110,7 +110,7 @@ class TextGeometry extends THREE.BufferGeometry {
     var bbox = this.boundingBox
     var positions = this.attributes.position.array
     var itemSize = this.attributes.position.itemSize
-    if (!positions || !itemSize || positions.length < 2) {
+    if (!positions || !itemSize || positions.length < 3) {
       bbox.makeEmpty()
       return
     }
