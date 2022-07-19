@@ -9,7 +9,7 @@
     "url": "https://github.com/mattdesl"
   },
   "peerDependencies": {
-    "three": "^0.118.0"
+    "three": "^0.142.0"
   },
   "main": "dist/index.js",
   "dependencies": {
