@@ -9,13 +9,12 @@
     "url": "https://github.com/mattdesl"
   },
   "peerDependencies": {
-    "three": "^0.142.0"
+    "three": ">=0.120.0"
   },
   "main": "dist/index.js",
   "dependencies": {
     "layout-bmfont-text": "^1.2.0",
-    "quad-indices": "^2.0.1",
-    "three-buffer-vertex-data": "^1.0.0"
+    "quad-indices": "^2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
