@@ -12,7 +12,7 @@
     "three": ">=0.120.0"
   },
   "main": "dist/three-bmfont-text.min.js",
-  "module": "dist/three-bmfont-text.module.js",
+  "module": "dist/three-bmfont-text.module.min.js",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
