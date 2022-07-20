@@ -1,5 +1,5 @@
-var createLayout = require('layout-bmfont-text')
-var createIndices = require('quad-indices')
+import { createLayout } from './layout-bmfont-text';
+import { createIndices } from './quad-indices';
 import * as utils from './utils';
 import * as vertices from './vertices';
 import { BufferGeometry, BufferAttribute, Sphere, Box3 } from 'three';
@@ -13,6 +13,7 @@ export function createTextGeometry (opt) {
 class TextGeometry extends BufferGeometry {
   constructor(opt){
     super();
+    console.log(opt);
 
     if (typeof opt === 'string') {
       opt = { text: opt }
