@@ -13,7 +13,6 @@ export function createTextGeometry (opt) {
 class TextGeometry extends BufferGeometry {
   constructor(opt){
     super();
-    console.log(opt);
 
     if (typeof opt === 'string') {
       opt = { text: opt }
@@ -31,7 +30,6 @@ class TextGeometry extends BufferGeometry {
     if (typeof opt === 'string') {
       opt = { text: opt }
     }
-  
     // use constructor defaults
     opt = Object.assign({}, this._opt, opt)
   

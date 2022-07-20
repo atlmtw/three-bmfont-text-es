@@ -22,6 +22,19 @@ function number(num, def) {
 
 class TextLayout {
     constructor(opt) {
+        //getters for the private vars
+        ['width', 'height',
+        'descender', 'ascender',
+        'xHeight', 'baseline',
+        'capHeight',
+        'lineHeight'
+        ].forEach((name) => {
+            Object.defineProperty(TextLayout, name, {
+                get: wrapper(name),
+                configurable: true
+            })
+        })
+
         this.glyphs = []
         this._measure = this.computeMetrics.bind(this)
         this.update(opt)
@@ -41,8 +54,6 @@ class TextLayout {
         var text = opt.text || ''
         var font = opt.font
         this._setupSpaceGlyphs(font)
-
-        console.log(font);
 
         var lines = makeLines(text, opt)
         var minWidth = opt.width || 0
@@ -79,8 +90,7 @@ class TextLayout {
         this._ascender = lineHeight - descender - this._xHeight
 
         //layout each glyph
-        var self = this
-        lines.forEach(function (line, lineIndex) {
+        lines.forEach((line, lineIndex) => {
             var start = line.start
             var end = line.end
             var lineWidth = line.width
@@ -89,7 +99,7 @@ class TextLayout {
             //for each glyph in that line...
             for (var i = start; i < end; i++) {
                 var id = text.charCodeAt(i)
-                var glyph = self.getGlyph(font, id)
+                var glyph = this.getGlyph(font, id)
                 if (glyph) {
                     if (lastGlyph)
                         x += getKerning(font, lastGlyph.id, glyph.id)
@@ -135,6 +145,8 @@ class TextLayout {
         var space = getGlyphById(font, SPACE_ID) ||
             getMGlyph(font) ||
             font.chars[0]
+        
+        var space = JSON.parse(JSON.stringify(space));
 
         //and create a fallback for tab
         var tabWidth = this._opt.tabSize * space.xadvance
@@ -217,21 +229,6 @@ class TextLayout {
     }
 }
 
-//getters for the private vars
-['width', 'height',
-    'descender', 'ascender',
-    'xHeight', 'baseline',
-    'capHeight',
-    'lineHeight'
-].forEach(addGetter)
-
-function addGetter(name) {
-    Object.defineProperty(TextLayout, name, {
-        get: wrapper(name),
-        configurable: true
-    })
-}
-
 //create lookups for private vars
 function wrapper(name) {
     return (new Function([
@@ -244,7 +241,7 @@ function wrapper(name) {
 function getGlyphById(font, id) {
     if (!font.chars || font.chars.length === 0)
         return null
-
+    
     var glyphIdx = findChar(font.chars, id)
     if (glyphIdx >= 0)
         return font.chars[glyphIdx]

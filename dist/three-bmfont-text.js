@@ -187,6 +187,13 @@ var TextLayout = /*#__PURE__*/function () {
   function TextLayout(opt) {
     _classCallCheck(this, TextLayout);
 
+    //getters for the private vars
+    ['width', 'height', 'descender', 'ascender', 'xHeight', 'baseline', 'capHeight', 'lineHeight'].forEach(function (name) {
+      Object.defineProperty(TextLayout, name, {
+        get: wrapper(name),
+        configurable: true
+      });
+    });
     this.glyphs = [];
     this._measure = this.computeMetrics.bind(this);
     this.update(opt);
@@ -195,6 +202,8 @@ var TextLayout = /*#__PURE__*/function () {
   _createClass(TextLayout, [{
     key: "update",
     value: function update(opt) {
+      var _this = this;
+
       opt = Object.assign({
         measure: this._measure
       }, opt);
@@ -207,7 +216,6 @@ var TextLayout = /*#__PURE__*/function () {
 
       this._setupSpaceGlyphs(font);
 
-      console.log(font);
       var lines = makeLines(text, opt);
       var minWidth = opt.width || 0; //clear glyphs
 
@@ -237,7 +245,6 @@ var TextLayout = /*#__PURE__*/function () {
       this._lineHeight = lineHeight;
       this._ascender = lineHeight - descender - this._xHeight; //layout each glyph
 
-      var self = this;
       lines.forEach(function (line, lineIndex) {
         var start = line.start;
         var end = line.end;
@@ -246,7 +253,8 @@ var TextLayout = /*#__PURE__*/function () {
 
         for (var i = start; i < end; i++) {
           var id = text.charCodeAt(i);
-          var glyph = self.getGlyph(font, id);
+
+          var glyph = _this.getGlyph(font, id);
 
           if (glyph) {
             if (lastGlyph) x += getKerning(font, lastGlyph.id, glyph.id);
@@ -281,7 +289,8 @@ var TextLayout = /*#__PURE__*/function () {
       //then fall back to the 'm' or 'w' glyphs
       //then fall back to the first glyph available
 
-      var space = getGlyphById(font, SPACE_ID) || getMGlyph(font) || font.chars[0]; //and create a fallback for tab
+      var space = getGlyphById(font, SPACE_ID) || getMGlyph(font) || font.chars[0];
+      var space = JSON.parse(JSON.stringify(space)); //and create a fallback for tab
 
       var tabWidth = this._opt.tabSize * space.xadvance;
       this._fallbackSpaceGlyph = space;
@@ -357,17 +366,7 @@ var TextLayout = /*#__PURE__*/function () {
   }]);
 
   return TextLayout;
-}(); //getters for the private vars
-
-
-['width', 'height', 'descender', 'ascender', 'xHeight', 'baseline', 'capHeight', 'lineHeight'].forEach(addGetter);
-
-function addGetter(name) {
-  Object.defineProperty(TextLayout, name, {
-    get: wrapper(name),
-    configurable: true
-  });
-} //create lookups for private vars
+}(); //create lookups for private vars
 
 
 function wrapper(name) {
@@ -691,7 +690,6 @@ var TextGeometry = /*#__PURE__*/function (_BufferGeometry) {
     createTextGeometry_classCallCheck(this, TextGeometry);
 
     _this = _super.call(this);
-    console.log(opt);
 
     if (typeof opt === 'string') {
       opt = {
