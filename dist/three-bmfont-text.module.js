@@ -688,7 +688,7 @@ function vertices_positions (glyphs) {
 ;// CONCATENATED MODULE: external "three"
 var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
 var y = x => () => x
-const external_three_namespaceObject = x({ ["Box3"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Box3, ["BufferAttribute"]: () => __WEBPACK_EXTERNAL_MODULE_three__.BufferAttribute, ["BufferGeometry"]: () => __WEBPACK_EXTERNAL_MODULE_three__.BufferGeometry, ["Sphere"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Sphere });
+const external_three_namespaceObject = x({ ["Box3"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Box3, ["BufferAttribute"]: () => __WEBPACK_EXTERNAL_MODULE_three__.BufferAttribute, ["BufferGeometry"]: () => __WEBPACK_EXTERNAL_MODULE_three__.BufferGeometry, ["Color"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Color, ["REVISION"]: () => __WEBPACK_EXTERNAL_MODULE_three__.REVISION, ["Sphere"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Sphere, ["Texture"]: () => __WEBPACK_EXTERNAL_MODULE_three__.Texture });
 ;// CONCATENATED MODULE: ./src/lib/createTextGeometry.js
 
 
@@ -818,6 +818,8 @@ class TextGeometry extends external_three_namespaceObject.BufferGeometry {
 
 
 ;// CONCATENATED MODULE: ./src/shaders/basic.js
+
+
 function createBasicShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -835,8 +837,8 @@ function createBasicShader (opt) {
   return Object.assign({
     uniforms: {
       opacity: { type: 'f', value: opacity },
-      map: { type: 't', value: map || new THREE.Texture() },
-      color: { type: 'c', value: new THREE.Color(color) }
+      map: { type: 't', value: map || new external_three_namespaceObject.Texture() },
+      color: { type: 'c', value: new external_three_namespaceObject.Color(color) }
     },
     vertexShader: [
       'attribute vec2 uv;',
@@ -867,6 +869,8 @@ function createBasicShader (opt) {
 }
 
 ;// CONCATENATED MODULE: ./src/shaders/msdf.js
+
+
 function createMSDFShader (opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -886,8 +890,8 @@ function createMSDFShader (opt) {
   return Object.assign({
     uniforms: {
       opacity: { type: 'f', value: opacity },
-      map: { type: 't', value: map || new THREE.Texture() },
-      color: { type: 'c', value: new THREE.Color(color) }
+      map: { type: 't', value: map || new external_three_namespaceObject.Texture() },
+      color: { type: 'c', value: new external_three_namespaceObject.Color(color) }
     },
     vertexShader: [
       'attribute vec2 uv;',
@@ -928,6 +932,8 @@ function createMSDFShader (opt) {
 };
 
 ;// CONCATENATED MODULE: ./src/shaders/multipage.js
+
+
 function createMultipageShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -970,7 +976,7 @@ function createMultipageShader (opt) {
     attributes: { page: { type: 'f', value: 0 } }
   }
 
-  var threeVers = (parseInt(THREE.REVISION, 10) || 0) | 0
+  var threeVers = (parseInt(external_three_namespaceObject.REVISION, 10) || 0) | 0
   if (threeVers >= 72) {
     attributes = undefined
   }
@@ -978,7 +984,7 @@ function createMultipageShader (opt) {
   return Object.assign({
     uniforms: Object.assign({}, baseUniforms, {
       opacity: { type: 'f', value: opacity },
-      color: { type: 'c', value: new THREE.Color(color) }
+      color: { type: 'c', value: new external_three_namespaceObject.Color(color) }
     }),
     vertexShader: [
       'attribute vec4 position;',
@@ -1014,6 +1020,8 @@ function createMultipageShader (opt) {
 }
 
 ;// CONCATENATED MODULE: ./src/shaders/sdf.js
+
+
 function createSDFShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -1031,8 +1039,8 @@ function createSDFShader (opt) {
   return Object.assign({
     uniforms: {
       opacity: { type: 'f', value: opacity },
-      map: { type: 't', value: map || new THREE.Texture() },
-      color: { type: 'c', value: new THREE.Color(color) }
+      map: { type: 't', value: map || new external_three_namespaceObject.Texture() },
+      color: { type: 'c', value: new external_three_namespaceObject.Color(color) }
     },
     vertexShader: [
       'attribute vec2 uv;',
@@ -1075,6 +1083,13 @@ function createSDFShader (opt) {
     ].join('\n')
   }, opt)
 }
+
+;// CONCATENATED MODULE: ./src/shaders/index.js
+
+
+
+
+
 
 ;// CONCATENATED MODULE: ./src/index.js
 

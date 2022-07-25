@@ -808,6 +808,7 @@ var TextGeometry = /*#__PURE__*/function (_BufferGeometry) {
 
 
 ;// CONCATENATED MODULE: ./src/shaders/basic.js
+
 function createBasicShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -828,11 +829,11 @@ function createBasicShader(opt) {
       },
       map: {
         type: 't',
-        value: map || new THREE.Texture()
+        value: map || new external_three_namespaceObject.Texture()
       },
       color: {
         type: 'c',
-        value: new THREE.Color(color)
+        value: new external_three_namespaceObject.Color(color)
       }
     },
     vertexShader: ['attribute vec2 uv;', 'attribute vec4 position;', 'uniform mat4 projectionMatrix;', 'uniform mat4 modelViewMatrix;', 'varying vec2 vUv;', 'void main() {', 'vUv = uv;', 'gl_Position = projectionMatrix * modelViewMatrix * position;', '}'].join('\n'),
@@ -840,6 +841,7 @@ function createBasicShader(opt) {
   }, opt);
 }
 ;// CONCATENATED MODULE: ./src/shaders/msdf.js
+
 function createMSDFShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -862,11 +864,11 @@ function createMSDFShader(opt) {
       },
       map: {
         type: 't',
-        value: map || new THREE.Texture()
+        value: map || new external_three_namespaceObject.Texture()
       },
       color: {
         type: 'c',
-        value: new THREE.Color(color)
+        value: new external_three_namespaceObject.Color(color)
       }
     },
     vertexShader: ['attribute vec2 uv;', 'attribute vec4 position;', 'uniform mat4 projectionMatrix;', 'uniform mat4 modelViewMatrix;', 'varying vec2 vUv;', 'void main() {', 'vUv = uv;', 'gl_Position = projectionMatrix * modelViewMatrix * position;', '}'].join('\n'),
@@ -875,6 +877,7 @@ function createMSDFShader(opt) {
 }
 ;
 ;// CONCATENATED MODULE: ./src/shaders/multipage.js
+
 function createMultipageShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -910,7 +913,7 @@ function createMultipageShader(opt) {
       }
     }
   };
-  var threeVers = (parseInt(THREE.REVISION, 10) || 0) | 0;
+  var threeVers = (parseInt(external_three_namespaceObject.REVISION, 10) || 0) | 0;
 
   if (threeVers >= 72) {
     attributes = undefined;
@@ -924,7 +927,7 @@ function createMultipageShader(opt) {
       },
       color: {
         type: 'c',
-        value: new THREE.Color(color)
+        value: new external_three_namespaceObject.Color(color)
       }
     }),
     vertexShader: ['attribute vec4 position;', 'attribute vec2 uv;', 'attribute float page;', 'uniform mat4 projectionMatrix;', 'uniform mat4 modelViewMatrix;', 'varying vec2 vUv;', 'varying float vPage;', 'void main() {', 'vUv = uv;', 'vPage = page;', 'gl_Position = projectionMatrix * modelViewMatrix * position;', '}'].join('\n'),
@@ -932,6 +935,7 @@ function createMultipageShader(opt) {
   }, attributes, opt);
 }
 ;// CONCATENATED MODULE: ./src/shaders/sdf.js
+
 function createSDFShader(opt) {
   opt = opt || {};
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1;
@@ -952,17 +956,23 @@ function createSDFShader(opt) {
       },
       map: {
         type: 't',
-        value: map || new THREE.Texture()
+        value: map || new external_three_namespaceObject.Texture()
       },
       color: {
         type: 'c',
-        value: new THREE.Color(color)
+        value: new external_three_namespaceObject.Color(color)
       }
     },
     vertexShader: ['attribute vec2 uv;', 'attribute vec4 position;', 'uniform mat4 projectionMatrix;', 'uniform mat4 modelViewMatrix;', 'varying vec2 vUv;', 'void main() {', 'vUv = uv;', 'gl_Position = projectionMatrix * modelViewMatrix * position;', '}'].join('\n'),
     fragmentShader: ['#ifdef GL_OES_standard_derivatives', '#extension GL_OES_standard_derivatives : enable', '#endif', 'precision ' + precision + ' float;', 'uniform float opacity;', 'uniform vec3 color;', 'uniform sampler2D map;', 'varying vec2 vUv;', 'float aastep(float value) {', '  #ifdef GL_OES_standard_derivatives', '    float afwidth = length(vec2(dFdx(value), dFdy(value))) * 0.70710678118654757;', '  #else', '    float afwidth = (1.0 / 32.0) * (1.4142135623730951 / (2.0 * gl_FragCoord.w));', '  #endif', '  return smoothstep(0.5 - afwidth, 0.5 + afwidth, value);', '}', 'void main() {', '  vec4 texColor = texture2D(map, vUv);', '  float alpha = aastep(texColor.a);', '  gl_FragColor = vec4(color, opacity * alpha);', alphaTest === 0 ? '' : '  if (gl_FragColor.a < ' + alphaTest + ') discard;', '}'].join('\n')
   }, opt);
 }
+;// CONCATENATED MODULE: ./src/shaders/index.js
+
+
+
+
+
 ;// CONCATENATED MODULE: ./src/index.js
 
 
