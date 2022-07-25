@@ -1,3 +1,5 @@
+import { REVISION, Color } from 'three';
+
 export function createMultipageShader (opt) {
   opt = opt || {}
   var opacity = typeof opt.opacity === 'number' ? opt.opacity : 1
@@ -40,7 +42,7 @@ export function createMultipageShader (opt) {
     attributes: { page: { type: 'f', value: 0 } }
   }
 
-  var threeVers = (parseInt(THREE.REVISION, 10) || 0) | 0
+  var threeVers = (parseInt(REVISION, 10) || 0) | 0
   if (threeVers >= 72) {
     attributes = undefined
   }
@@ -48,7 +50,7 @@ export function createMultipageShader (opt) {
   return Object.assign({
     uniforms: Object.assign({}, baseUniforms, {
       opacity: { type: 'f', value: opacity },
-      color: { type: 'c', value: new THREE.Color(color) }
+      color: { type: 'c', value: new Color(color) }
     }),
     vertexShader: [
       'attribute vec4 position;',
