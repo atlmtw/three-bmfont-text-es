@@ -1,6 +1,6 @@
 {
   "name": "three-bmfont-text-es",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "ES6 Module that enables BMFont files in ThreeJS with word-wrapping. Originally created by Matt DesLauriers (https://github.com/mattdesl/)",
   "license": "MIT",
   "author": {
