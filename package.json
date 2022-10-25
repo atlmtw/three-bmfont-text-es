@@ -31,7 +31,6 @@
     "standard": "^14.3.4",
     "sun-tzu-quotes": "^1.0.0",
     "terser-webpack-plugin": "^5.3.3",
-    "three": "^0.142.0",
     "three-orbit-viewer": "^69.2.9",
     "three-vignette-background": "^1.0.2",
     "uglify-js": "^3.10.0",

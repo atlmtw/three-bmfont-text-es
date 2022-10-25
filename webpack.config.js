@@ -37,7 +37,6 @@ const moduleConfig = {
 
 	// 2 files, raw + min
 	entry: {
-		'/three-bmfont-text.module': './src/index.js',
 		'/three-bmfont-text.module.min': './src/index.js',
 	},
 
@@ -59,7 +58,6 @@ const moduleConfig = {
 
 const browserConfig = {
 	entry: {
-		'/three-bmfont-text': './src/index.js',
 		'/three-bmfont-text.min': './src/index.js',
 	},
 	output: {
