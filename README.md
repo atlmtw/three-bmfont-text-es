@@ -3,6 +3,10 @@
 
 This is basically an ES version of mattdesl's original npm package at https://jam3.github.io/three-bmfont-text/
 
+Main fixes:
+- Allows for "import"
+- Made position to be vec3 to allow for computing bounding box
+
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
 [<img src="http://i.imgur.com/3Tswdau.png" width="65%" />](https://jam3.github.io/three-bmfont-text/test)
@@ -16,13 +20,14 @@ The is version should work with Three JS Version 145
 Below is an example that uses [load-bmfont](https://www.npmjs.com/package/load-bmfont) to parse BMFont files on the fly with XHR:
 
 ```js
-var createGeometry = require('three-bmfont-text')
-var loadFont = require('load-bmfont')
+import { createTextGeometry } from 'three-bmfont-text-es';
+import * as loadFont from "load-bmfont";
+import { Mesh, TextureLoader, MeshBasicMaterial } from 'three';
 
 loadFont('fonts/Arial.fnt', function(err, font) {
   // create a geometry of packed bitmap glyphs, 
   // word wrapped to 300px and right-aligned
-  var geometry = createGeometry({
+  var geometry = createTextGeometry({
     width: 300,
     align: 'right',
     font: font
@@ -38,17 +43,17 @@ loadFont('fonts/Arial.fnt', function(err, font) {
   console.log(geometry.layout.descender)
     
   // the texture atlas containing our glyphs
-  var textureLoader = new THREE.TextureLoader();
+  var textureLoader = new TextureLoader();
   textureLoader.load('fonts/Arial.png', function (texture) {
     // we can use a simple ThreeJS material
-    var material = new THREE.MeshBasicMaterial({
+    var material = new MeshBasicMaterial({
       map: texture,
       transparent: true,
       color: 0xaaffff
     })
 
     // now do something with our mesh!
-    var mesh = new THREE.Mesh(geometry, material)
+    var mesh = new Mesh(geometry, material)
   })
 })
 ```
